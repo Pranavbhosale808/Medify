@@ -76,7 +76,12 @@ const login = async(req,res)=>{
     }
 }
 
-const contactus = async(req,res)=>{
-    
+const user =async (req,res)=>{
+    try {
+        
+    } catch (error) {
+        console.log("Error Realted to user route")
+    }
+
 }
-module.exports = {home,register,login};
+module.exports = {home,register,login,user};
