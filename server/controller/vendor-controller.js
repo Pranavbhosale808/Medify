@@ -1,5 +1,5 @@
 const Vendor = require('../models/vendor-model.js');
-const multer = require('multer');
+// const multer = require('multer');
 const path = require('path')
 
 // 1. Get Data
