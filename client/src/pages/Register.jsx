@@ -1,135 +1,80 @@
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { useState } from "react";
-import { NavLink, Navigate,useNavigate } from "react-router-dom";
-import { useAuth } from "../store/auth";
+import { FaGoogle } from "react-icons/fa";
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 
-export const Register = ()=>{
-  
-  const [user, setUser] = useState({
-    username:"",
-    email:"",
-    phone:"",
-    password:""
-  })
-
-  const handleInput =(e)=>{
-    console.log(e);
-    let name = e.target.name;
-    let value = e.target.value;
-
-    setUser({
-      ...user,
-      [name]:value,
-    });
-  };
-
-  const navigate = useNavigate();
-  const {storeTokenInLS} = useAuth();
-
-  const handleSubmit= async (e)=>{
-    e.preventDefault();
-    console.log(user);
-    
-    try {
-      const response = await fetch('http://localhost:5000/api/register',{
-        method:"POST",
-        headers:{
-          "Content-Type":'application/json',
-        },
-        body:JSON.stringify(user),
-      });
-      
-
-      if(response.ok){
-        const responseData = response.json();
-        console.log(responseData);
-        storeTokenInLS(responseData.token);
-        setUser({username:"",email:"",phone:"",password:""});
-        navigate('/login');
-        console.log(responseData);
-      }
-      else{
-        alert("Invalid Credintals");
-      }
-    } catch (error) {
-      console.log('register catch',error);
-      
-    } 
-    
-  }
-
-
+function Register() {
+  const [password, setPassword] = useState({
+    eye: false,
+    type: "password",
+  });
   return (
-    <>
-      <section>
-        <main>
-          <div className="section-registration">
-            <div className="container grid grid-two-cols">
-              <div className="registration-image reg-img">
-                <img
-                  src="/images/register.png"
-                  alt="a nurse with a cute look"
-                  width="400"
-                  height="500"
-                />
-              </div>
-              {/* our main registration code  */}
-              <div className="registration-form">
-                <h1 className="main-heading mb-3">Registration form</h1>
-                <br />
-                <form onSubmit={handleSubmit}>
-                  <div>
-                    <label htmlFor="username">username</label>
-                    <input
-                      type="text"
-                      name="username"
-                      placeholder="username"
-                      value={user.username}
-                      onChange={handleInput}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email">email</label>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="email"
-                      value={user.email}
-                      onChange={handleInput}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="phone">phone</label>
-                    <input
-                      type="text"
-                      name="phone"
-                      value={user.phone}
-                      onChange={handleInput}
-                     
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="password">password</label>
-                    <input
-                      type="password"
-                      name="password"
-                      placeholder="password"
-                      value={user.password}
-                      onChange={handleInput}
-                    />
-                  </div>
-                  <br />
-                  <button type="submit" className="btn btn-submit">
-                    Register Now
-                  </button>
-                  <p>Already Having Account<span><NavLink to="/login">Login</NavLink></span></p>
-                </form>
+    <main>
+      <section className="flex flex-row-reverse w-full h-full">
+        <div className="w-[70%] lg:px-60 m-auto">
+          <h1 className="my-8 mx-4 text-center">Welcome</h1>
+          <form className="flex flex-col space-y-6">
+            <div className="text-left">
+              <Label>E-mail</Label>
+              <Input placeholder="jhon.doe@gmail.com" />
+            </div>
+
+            <div className="text-left">
+              <Label>Password</Label>
+              <div className="relative w-full">
+                <Input placeholder="****************" type={password.type} />
+                {password.eye ? (
+                  <IoEyeOutline
+                    onClick={() =>
+                      setPassword({ eye: false, type: "password" })
+                    }
+                    className="text-subtitle absolute top-5 right-5 cursor-pointer scale-125"
+                  />
+                ) : (
+                  <IoEyeOffOutline
+                    onClick={() => setPassword({ eye: true, type: "text" })}
+                    className="text-subtitle absolute top-5 right-5 cursor-pointer scale-125"
+                  />
+                )}
+                <small className=" cursor-pointer">forgot password ?</small>
               </div>
             </div>
-          </div>
-        </main>
+            <div className="text-left">
+              <Label>Company Name</Label>
+              <Input placeholder="Huma medical store" />
+            </div>
+            <div className="text-left">
+              <Label>Buisness location</Label>
+              <Input placeholder="Delhi, NCR" />
+            </div>
+            <div className="flex gap-2 items-center justify-start">
+              <Checkbox />
+              <Label className="font-medium">
+                By signing up you agree to our{" "}
+                <span className="text-secondary">Privacy poilicy</span> and{" "}
+                <span className="text-secondary">T&C</span>
+              </Label>
+            </div>
+            <Button className="outline">Register</Button>
+            <Button variant="outline" className="text-subtitle">
+              <FaGoogle className="mx-2" />
+              Continue with Google
+            </Button>
+          </form>
+          <p className="text-left my-8 font-semibold">
+            Already a member?{" "}
+            <a className="text-secondary" href="">
+              Log in
+            </a>
+          </p>
+        </div>
+        <div className=" w-1/2 bg-subtitle lg:block hidden"></div>
       </section>
-    </>
+    </main>
   );
-};
+}
 
-
+export default Register;
