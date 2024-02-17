@@ -18,7 +18,7 @@ function Login() {
           <h1 className="my-8 mx-4">Welcome back!</h1>
           <form className="flex flex-col lg:space-y-8 space-y-4">
             <div className="text-left">
-              <Label>E-mail</Label>
+              <Label>E-maill</Label>
               <Input placeholder="jhon.doe@gmail.com" />
             </div>
 
