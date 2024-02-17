@@ -23,84 +23,80 @@ import { IoAdd } from "react-icons/io5";
 import { Label } from "@/components/ui/label";
 import { IoIosMore } from "react-icons/io";
 
-import img1 from "@/assets/img1.png";
-import img2 from "@/assets/img2.png";
-import img3 from "@/assets/img3.png";
 import PageLayout from "@/components/PageLayout";
 import { Link } from "react-router-dom";
+import { MdOutlineDelete } from "react-icons/md";
 
 const productList = [
   {
-    img: img1,
     name: "Remdesivir 20 mg",
-    inStock: 25,
-    cprice: 2300,
-    sprice: 3000,
-    notes:
+    description:
       "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
+    qty: 50,
+    lsv: 23,
+    price: 3000,
+    pd: "22/03/20024",
+    ed: "22/03/20025",
   },
   {
-    img: img2,
     name: "Remdesivir 20 mg",
-    inStock: 25,
-    cprice: 2300,
-    sprice: 3000,
-    notes:
+    description:
       "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
+    qty: 50,
+    lsv: 23,
+    price: 3000,
+    pd: "22/03/20024",
+    ed: "22/03/20025",
   },
   {
-    img: img3,
     name: "Remdesivir 20 mg",
-    inStock: 25,
-    cprice: 2300,
-    sprice: 3000,
-    notes:
+    description:
       "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
+    qty: 50,
+    lsv: 23,
+    price: 3000,
+    pd: "22/03/20024",
+    ed: "22/03/20025",
   },
   {
-    img: img1,
     name: "Remdesivir 20 mg",
-    inStock: 25,
-    cprice: 2300,
-    sprice: 3000,
-    notes:
+    description:
       "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
+    qty: 50,
+    lsv: 23,
+    price: 3000,
+    pd: "22/03/20024",
+    ed: "22/03/20025",
   },
   {
-    img: img2,
     name: "Remdesivir 20 mg",
-    inStock: 25,
-    cprice: 2300,
-    sprice: 3000,
-    notes:
+    description:
       "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
+    qty: 50,
+    lsv: 23,
+    price: 3000,
+    pd: "22/03/20024",
+    ed: "22/03/20025",
   },
   {
-    img: img3,
     name: "Remdesivir 20 mg",
-    inStock: 25,
-    cprice: 2300,
-    sprice: 3000,
-    notes:
+    description:
       "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
+    qty: 50,
+    lsv: 23,
+    price: 3000,
+    pd: "22/03/20024",
+    ed: "22/03/20025",
   },
   {
-    img: img1,
     name: "Remdesivir 20 mg",
-    inStock: 25,
-    cprice: 2300,
-    sprice: 3000,
-    notes:
+    description:
       "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
-  },
-  {
-    img: img2,
-    name: "Remdesivir 20 mg",
-    inStock: 25,
-    cprice: 2300,
-    sprice: 3000,
-    notes:
-      "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
+    qty: 50,
+    lsv: 23,
+    price: 3000,
+    pd: "22/03/20024",
+    ed: "22/03/20025",
   },
 ];
 
@@ -141,23 +137,28 @@ function Products() {
         </div>
         <div>
           <Table>
-            <TableCaption>A list of your recent invoices.</TableCaption>
             <TableHeader>
               <TableRow>
-                <TableHead className="text-center text-[18px] font-medium text-black">
+                <TableHead className="text-center text-[16px] font-medium text-black">
                   Name
                 </TableHead>
-                <TableHead className="text-center text-[18px] font-medium text-black">
-                  In Stock
+                <TableHead className="text-center text-[16px] font-medium text-black">
+                  Description
                 </TableHead>
-                <TableHead className="text-center text-[18px] font-medium text-black">
-                  Cost Price
+                <TableHead className="text-center text-[16px] font-medium text-black">
+                  Quantity
                 </TableHead>
-                <TableHead className="text-center text-[18px] font-medium text-black">
-                  Selling Price
+                <TableHead className="text-center text-[16px] font-medium text-black">
+                  Low Stack Value
                 </TableHead>
-                <TableHead className="text-center text-[18px] font-medium text-black">
-                  Notes
+                <TableHead className="text-center text-[16px] font-medium text-black">
+                  Unit Price
+                </TableHead>
+                <TableHead className="text-center text-[16px] font-medium text-black">
+                  Purchase Date
+                </TableHead>
+                <TableHead className="text-center text-[16px] font-medium text-black">
+                  Expiry Date
                 </TableHead>
                 <TableHead className="text-center text-[18px] font-medium text-black">
                   {" "}
@@ -169,25 +170,30 @@ function Products() {
                 return (
                   <TableRow key={i}>
                     <TableCell className="flex items-center justify-start gap-2">
-                      <div className="rounded-full w-14">
-                        <img src={img1} alt="#" className="" />
-                      </div>
-                      <h4 className="font-normal">{item.name}</h4>
-                    </TableCell>
-                    <TableCell>
-                      <h4 className="font-normal">{item.inStock}</h4>
-                    </TableCell>
-                    <TableCell>
-                      <h4 className="font-normal">₹{item.cprice}</h4>
-                    </TableCell>
-                    <TableCell>
-                      <h4 className="font-normal">₹{item.sprice}</h4>
+                      <div className="rounded-full w-14"></div>
+                      <p className="font-normal">{item.name}</p>
                     </TableCell>
                     <TableCell className="w-[320px]">
-                      <p>{item.notes}</p>
+                      <Label>{item.description}</Label>
                     </TableCell>
                     <TableCell>
-                      <IoIosMore className="text-black scale-150 cursor-pointer" />
+                      <p className="font-normal">{item.qty}</p>
+                    </TableCell>
+                    <TableCell>
+                      <p className="font-normal">{item.lsv}</p>
+                    </TableCell>
+                    <TableCell>
+                      <p className="font-normal">₹{item.price}</p>
+                    </TableCell>
+                    <TableCell>
+                      <p className="font-normal">{item.pd}</p>
+                    </TableCell>
+                    <TableCell>
+                      <p className="font-normal">{item.ed}</p>
+                    </TableCell>
+                    <TableCell>
+                      {/* <IoIosMore className="text-black scale-150 cursor-pointer" /> */}
+                      <MdOutlineDelete className="text-error scale-150 cursor-pointer" />
                     </TableCell>
                   </TableRow>
                 );

@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
-import { Navigate,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Register() {
   const [password, setPassword] = useState({
@@ -141,9 +141,9 @@ function Register() {
           </form>
           <p className="text-left my-8 font-semibold">
             Already a member?{" "}
-            <a className="text-secondary" href="">
+            <Link className="text-secondary" to="/login">
               Log in
-            </a>
+            </Link>
           </p>
         </div>
         <div className=" w-1/2 bg-subtitle lg:block hidden"></div>

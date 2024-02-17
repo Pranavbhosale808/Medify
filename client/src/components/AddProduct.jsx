@@ -16,53 +16,46 @@ import {
 function AddProduct() {
   return (
     <PageLayout>
-      <section className="pt-12 px-12 flex gap-12 items-start w-full justify-center">
-        <div className="flex flex-col items-center justify-center gap-4">
+      <section className="pt-12 px-10 flex gap-12 items-start w-full justify-center">
+        {/* <div className="flex flex-col items-center justify-center gap-4">
           <img src={img1} alt="#" className="w-[282px] h-[250px] rounded-3xl" />
           <Button>Browse photos</Button>
           <Button className="bg-error">Remove photo</Button>
-        </div>
-        <div className="flex flex-col gap-6">
+        </div> */}
+        <div className="flex flex-col w-1/2 gap-6">
           <div>
             <Label>Name</Label>
             <Input placeholder="Remdesivir" />
           </div>
           <div>
-            <Label>Quantity in stock</Label>
-            <Input placeholder="250" />
+            <Label>Quantity</Label>
+            <Input placeholder="250" type="number" />
           </div>
           <div>
-            <Label>Low stock warning</Label>
-            <Input placeholder="15" />
+            <Label>Low Stock Value</Label>
+            <Input placeholder="15" type="number" />
+          </div>
+          <div>
+            <Label>Unit Price (1 Item)</Label>
+            <Input placeholder="170" type="number" />
           </div>
           <div className="flex gap-4 justify-center items-center">
             <div>
-              <Label>Cost Price (1 item)</Label>
-              <Input placeholder="₹150" />
+              <Label>Purchase Date</Label>
+              <Input type="date" />
             </div>
             <div>
-              <Label>Selling Price (1 item)</Label>
-              <Input placeholder="₹170" />
+              <Label>Expiry Date</Label>
+              <Input type="date" />
             </div>
           </div>
           <div>
-            <Label>Preffered vendor</Label>
-            <Select>
-              <SelectTrigger className="w-full h-[56px]">
-                <SelectValue placeholder="Select vendor" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
-              </SelectContent>
-            </Select>
+            <Label>Description</Label>
+            <Textarea
+              placeholder="Lorem ipsum dolor sit amet, consectet ui i iadipiscing elit.Lorem ipsum dolor sit amet, consectet ui i iadipiscing .Lorem ipsum dolor sit amet, consectet"
+              className="h-[130px]"
+            />
           </div>
-          <Label>Additional notes</Label>
-          <Textarea
-            placeholder="Lorem ipsum dolor sit amet, consectet ui i iadipiscing elit.Lorem ipsum dolor sit amet, consectet ui i iadipiscing .Lorem ipsum dolor sit amet, consectet"
-            className="h-[130px]"
-          />
         </div>
       </section>
     </PageLayout>

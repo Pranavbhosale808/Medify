@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { LuBell } from "react-icons/lu";
 import { FaAngleLeft } from "react-icons/fa6";
 import { Badge } from "./ui/badge";
@@ -6,7 +6,14 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Label } from "./ui/label";
 import MobileMenu from "./MobileMenu";
 
+import { AuthContext } from "@/store/auth";
+import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
+import Logout from "@/pages/Logout";
+
 function Navbar() {
+  const { isLoggedIn } = useContext(AuthContext);
+
   return (
     <nav className="fixed z-50 bg-white w-full flex justify-between items-center p-[10px] border-b">
       <div className="lg:hidden flex">
@@ -30,10 +37,13 @@ function Navbar() {
             3
           </Badge>
         </div>
-        <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
+        {isLoggedIn ? (
+          <Logout />
+        ) : (
+          <Link to="/login">
+            <Button size="sm">Log in</Button>
+          </Link>
+        )}
       </div>
     </nav>
   );
