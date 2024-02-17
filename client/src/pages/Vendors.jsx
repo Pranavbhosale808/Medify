@@ -29,78 +29,64 @@ import { MdOutlineDelete } from "react-icons/md";
 
 const productList = [
   {
-    name: "Remdesivir 20 mg",
+    username: "Navtika",
     description:
       "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
-    qty: 50,
-    lsv: 23,
-    price: 3000,
-    pd: "22/03/20024",
-    ed: "22/03/20025",
+    email: "vendorEmail@gmail.com",
+    phn: "87888888888",
   },
   {
-    name: "Remdesivir 20 mg",
+    username: "Nishant",
     description:
       "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
-    qty: 50,
-    lsv: 23,
-    price: 3000,
-    pd: "22/03/20024",
-    ed: "22/03/20025",
+    email: "vendorEmail@gmail.com",
+    phn: "87888888888",
   },
   {
-    name: "Remdesivir 20 mg",
+    username: "Nikhil",
     description:
       "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
-    qty: 50,
-    lsv: 23,
-    price: 3000,
-    pd: "22/03/20024",
-    ed: "22/03/20025",
+    email: "vendorEmail@gmail.com",
+    phn: "87888888888",
   },
   {
-    name: "Remdesivir 20 mg",
+    username: "Samiksa",
     description:
       "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
-    qty: 50,
-    lsv: 23,
-    price: 3000,
-    pd: "22/03/20024",
-    ed: "22/03/20025",
+    email: "vendorEmail@gmail.com",
+    phn: "87888888888",
   },
   {
-    name: "Remdesivir 20 mg",
+    username: "Sai Pranav",
     description:
       "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
-    qty: 50,
-    lsv: 23,
-    price: 3000,
-    pd: "22/03/20024",
-    ed: "22/03/20025",
+    email: "vendorEmail@gmail.com",
+    phn: "87888888888",
   },
   {
-    name: "Remdesivir 20 mg",
+    username: "Sahil",
     description:
       "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
-    qty: 50,
-    lsv: 23,
-    price: 3000,
-    pd: "22/03/20024",
-    ed: "22/03/20025",
+    email: "vendorEmail@gmail.com",
+    phn: "87888888888",
   },
   {
-    name: "Remdesivir 20 mg",
+    username: "Kushal",
     description:
       "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
-    qty: 50,
-    lsv: 23,
-    price: 3000,
-    pd: "22/03/20024",
-    ed: "22/03/20025",
+    email: "vendorEmail@gmail.com",
+    phn: "87888888888",
+  },
+  {
+    username: "Kushala",
+    description:
+      "Lorem ipsum dolor sit amet, consectet ui i iadipLorem ipsum dolor sit amet,",
+    email: "vendorEmail@gmail.com",
+    phn: "87888888888",
   },
 ];
 
-function Products() {
+function Vendors() {
   return (
     <PageLayout>
       <section className="p-12 pl-[290px] flex flex-col gap-8">
@@ -127,9 +113,9 @@ function Products() {
             </Select>
           </div> */}
           <div className="flex flex-col items-center">
-            <Link to="/products/add-product">
+            <Link to="/vendors/add-vendor">
               <Button>
-                <IoAdd className="scale-150 mx-4" /> Add Product
+                <IoAdd className="scale-150 mx-4" /> Add Vendor
               </Button>
             </Link>
             <Label className="text-subtitle">or scan a barcode</Label>
@@ -140,28 +126,16 @@ function Products() {
             <TableHeader>
               <TableRow>
                 <TableHead className="text-center text-[16px] font-medium text-black">
-                  Name
+                  Username
+                </TableHead>
+                <TableHead className="text-center text-[16px] font-medium text-black">
+                  Email
+                </TableHead>
+                <TableHead className="text-center text-[16px] font-medium text-black">
+                  Phone Number
                 </TableHead>
                 <TableHead className="text-center text-[16px] font-medium text-black">
                   Description
-                </TableHead>
-                <TableHead className="text-center text-[16px] font-medium text-black">
-                  Quantity
-                </TableHead>
-                <TableHead className="text-center text-[16px] font-medium text-black">
-                  Low Stack Value
-                </TableHead>
-                <TableHead className="text-center text-[16px] font-medium text-black">
-                  Unit Price
-                </TableHead>
-                <TableHead className="text-center text-[16px] font-medium text-black">
-                  Purchase Date
-                </TableHead>
-                <TableHead className="text-center text-[16px] font-medium text-black">
-                  Expiry Date
-                </TableHead>
-                <TableHead className="text-center text-[18px] font-medium text-black">
-                  {" "}
                 </TableHead>
               </TableRow>
             </TableHeader>
@@ -171,25 +145,17 @@ function Products() {
                   <TableRow key={i}>
                     <TableCell className="flex items-center justify-start gap-2">
                       <div className="rounded-full w-14"></div>
-                      <p className="font-normal">{item.name}</p>
+                      <p className="font-normal">{item.username}</p>
+                    </TableCell>
+
+                    <TableCell>
+                      <p className="font-normal">{item.email}</p>
+                    </TableCell>
+                    <TableCell>
+                      <p className="font-normal">{item.phn}</p>
                     </TableCell>
                     <TableCell className="w-[320px]">
                       <Label>{item.description}</Label>
-                    </TableCell>
-                    <TableCell>
-                      <p className="font-normal">{item.qty}</p>
-                    </TableCell>
-                    <TableCell>
-                      <p className="font-normal">{item.lsv}</p>
-                    </TableCell>
-                    <TableCell>
-                      <p className="font-normal">₹{item.price}</p>
-                    </TableCell>
-                    <TableCell>
-                      <p className="font-normal">{item.pd}</p>
-                    </TableCell>
-                    <TableCell>
-                      <p className="font-normal">{item.ed}</p>
                     </TableCell>
                     <TableCell>
                       {/* <IoIosMore className="text-black scale-150 cursor-pointer" /> */}
@@ -206,4 +172,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default Vendors;

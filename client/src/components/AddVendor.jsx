@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-function AddProduct() {
+function AddVendor() {
   return (
     <PageLayout>
       <section className="py-12 px-10 flex gap-12 items-start w-full justify-center">
@@ -24,43 +24,16 @@ function AddProduct() {
         </div> */}
         <form className="flex flex-col w-1/2 gap-6">
           <div>
-            <Label>Name</Label>
-            <Input placeholder="Remdesivir" />
+            <Label>Username</Label>
+            <Input placeholder="Ritik" />
           </div>
           <div>
-            <Label>Quantity</Label>
-            <Input placeholder="250" type="number" />
+            <Label>Email</Label>
+            <Input placeholder="vendor@gmail.com" type="email" />
           </div>
           <div>
-            <Label>Low Stock Value</Label>
-            <Input placeholder="15" type="number" />
-          </div>
-          <div>
-            <Label>Unit Price (1 Item)</Label>
-            <Input placeholder="170" type="number" />
-          </div>
-          <div className="flex w-full gap-4 justify-center items-center">
-            <div className="w-full">
-              <Label>Purchase Date</Label>
-              <Input type="date" />
-            </div>
-            <div className="w-full">
-              <Label>Expiry Date</Label>
-              <Input type="date" />
-            </div>
-          </div>
-          <div>
-            <Label>Preffered vendor</Label>
-            <Select>
-              <SelectTrigger className="w-full h-[56px]">
-                <SelectValue placeholder="Select vendor" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
-              </SelectContent>
-            </Select>
+            <Label>Phone Number</Label>
+            <Input placeholder="+91 8823288323" type="number" />
           </div>
           <div>
             <Label>Description</Label>
@@ -70,7 +43,7 @@ function AddProduct() {
             />
           </div>
           <div className="flex gap-4 w-full justify-between items-center">
-            <Button>Add Product</Button>
+            <Button>Add Vendor</Button>
             <Button
               variant="outline"
               className="border border-primary text-primary"
@@ -84,4 +57,4 @@ function AddProduct() {
   );
 }
 
-export default AddProduct;
+export default AddVendor;

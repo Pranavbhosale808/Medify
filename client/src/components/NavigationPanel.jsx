@@ -37,7 +37,7 @@ const links = [
 
 function NavigationPanel() {
   return (
-    <section className="py-[40px] relative lg:top-3 top-10 lg:block hidden  px-[23px] border-r w-fit h-full">
+    <section className="fixed py-[40px] lg:top-14 top-10 lg:block hidden  px-[23px] border-r w-fit h-screen">
       <div>
         <Button>
           {" "}
@@ -56,10 +56,10 @@ function NavigationPanel() {
           );
         })}
       </div>
-      <div className="w-[226px] h-[172px] bg-[#EBE8FC] mt-20 flex flex-col gap-2 rounded-[16px] justify-center items-center">
+      {/* <div className="w-[226px] h-[172px] bg-[#EBE8FC] mt-20 flex flex-col gap-2 rounded-[16px] justify-center items-center">
         <h4 className="w-[163px] h-[62px] text-center">Have some questions?</h4>
         <Button size="sm">look at the faqs</Button>
-      </div>
+      </div> */}
     </section>
   );
 }
