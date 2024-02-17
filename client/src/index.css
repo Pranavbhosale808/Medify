@@ -64,7 +64,7 @@
     @apply font-bold text-[24px] leading-[31.25px] tracking-[0.75px] text-title;
   }
 
-  h4 {
+  h5 {
     @apply font-medium text-[18px] leading-[23.44px] tracking-[2%] text-title;
   }
 

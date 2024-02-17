@@ -10,6 +10,7 @@ function Login() {
     eye: false,
     type: "password",
   });
+
   return (
     <main>
       <section className="flex w-full h-screen">
